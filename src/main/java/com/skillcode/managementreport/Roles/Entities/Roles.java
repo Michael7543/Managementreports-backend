@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Roles.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,5 +1,6 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.GeneralInfo.Entities;
 
+import com.skillcode.managementreport.Users.Entities.Users;
 import jakarta.persistence.*;
 import lombok.*;
 
