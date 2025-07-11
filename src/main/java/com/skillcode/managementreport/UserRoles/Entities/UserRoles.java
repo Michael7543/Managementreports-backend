@@ -16,7 +16,7 @@ import lombok.*;
 public class UserRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @ManyToOne(fetch = FetchType.LAZY , targetEntity = Users.class , optional = false)
     @JoinColumn(name = "user_id" ,referencedColumnName = "id")
     private Users users;

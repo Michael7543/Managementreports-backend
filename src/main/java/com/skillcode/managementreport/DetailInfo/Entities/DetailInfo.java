@@ -15,7 +15,7 @@ import lombok.*;
 public class DetailInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String function_detail;
     private String activity;
     private String sub_activity;
@@ -23,8 +23,8 @@ public class DetailInfo {
     private String type_place;
     private String administration_zona;
     private String public_space;
-    private Integer latitude;
-    private Integer longitude;
+    private int latitude;
+    private int longitude;
     private String direction;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Users.class , optional = false)

@@ -18,7 +18,7 @@ import java.sql.Timestamp;
 public class GeneralInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String order_service;
     private Timestamp fecha;
     private Time time_start;
