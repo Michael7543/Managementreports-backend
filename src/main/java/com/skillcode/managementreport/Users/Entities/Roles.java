@@ -3,26 +3,18 @@ package com.skillcode.managementreport.Users.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Data
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
-public class Users {
+@Table(name = "roles")
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String lastname;
-    private String identity_card;
-    private int phone;
-    private String email;
-    private String password;
-
-
-
+    private String role_name;
+    private String description;
 }
