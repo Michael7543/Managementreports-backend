@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Roles.Entities;
+package com.skillcode.managementreport.Users.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,6 +15,8 @@ public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String role_name;
+    @Column(name = "role_name")
+    private String roleName;
+    @Column(name = "description")
     private String description;
 }

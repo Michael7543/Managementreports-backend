@@ -1,7 +1,5 @@
-package com.skillcode.managementreport.UserRoles.Entities;
+package com.skillcode.managementreport.Users.Entities;
 
-import com.skillcode.managementreport.Roles.Entities.Roles;
-import com.skillcode.managementreport.Users.Entities.Users;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,11 +15,11 @@ public class UserRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(fetch = FetchType.LAZY , targetEntity = Users.class , optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id" ,referencedColumnName = "id")
     private Users users;
 
-    @ManyToOne(fetch = FetchType.LAZY , targetEntity = Roles.class , optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rol_id" , referencedColumnName = "id")
     private Roles roles;
 

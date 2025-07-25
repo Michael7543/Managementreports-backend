@@ -1,6 +1,5 @@
-package com.skillcode.managementreport.GeneralInfo.Entities;
+package com.skillcode.managementreport.Users.Entities;
 
-import com.skillcode.managementreport.Users.Entities.Users;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,14 +18,20 @@ public class GeneralInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String order_service;
+    @Column(name = "order_service")
+    private String orderService;
+    @Column(name = "fecha")
     private Timestamp fecha;
-    private Time time_start;
-    private Time time_end;
+    @Column(name = "time_start")
+    private Time timeStart;
+    @Column(name = "time_end")
+    private Time timeEnd;
+    @Column(name = "code")
     private String code;
+    @Column(name = "receiver")
     private String receiver;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Users.class , optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id" , referencedColumnName = "id")
     private Users user;
 
