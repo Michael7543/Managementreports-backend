@@ -16,19 +16,19 @@ public class SupportStaff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "staff_name")
+    @Column(name = "staff_name", length = 255)
     private String staffName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_support_user"))
     private Users user;
 
     /**
      * Desacomentar la relación cuando ya exista la entidad corresponsiente
      */
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "general_info_id")
-    //private GeneralInfo generalInfo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "general_info_id", referencedColumnName = "id")
+    private GeneralInfo generalInfo;
 
 }

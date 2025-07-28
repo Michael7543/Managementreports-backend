@@ -21,14 +21,14 @@ public class ResourcesUsed {
     private Integer stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
     private Users user;
 
     /**
      * Desacomentar la relación cuando ya exista la entidad corresponsiente
      */
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "general_info_id")
-    //private GeneralInfo generalInfo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "general_info_id", referencedColumnName = "id")
+    private GeneralInfo generalInfo;
 }

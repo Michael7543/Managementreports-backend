@@ -16,29 +16,32 @@ public class DetailInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "function_detail")
+    @Column(name = "function_detail", length = 255)
     private String functionDetail;
     @Column(name = "activity")
     private String activity;
     @Column(name = "sub_activity")
     private String subActivity;
-    @Column(name = "stategy")
-    private String stategy;
-    @Column(name = "type_place")
+    @Column(length = 100)
+    private String strategy;
+    @Column(name = "type_place", length = 255)
     private String typePlace;
-    @Column(name = "administration_zona")
-    private String administrationZona;
-    @Column(name = "public_space")
+    @Column(name = "administration_zone", length = 255)
+    private String administrationZone;
+    @Column(name = "public_space", length = 255)
     private String publicSpace;
-    @Column(name = "latitude")
+    @Column(name = "latitude", precision = 10, scale = 7)
     private Double latitude;
-    @Column(name = "longitude")
+    @Column(name = "longitude", precision = 10, scale = 7)
     private Double longitude;
-    @Column(name = "direction")
+    @Column(name = "direction", length = 255)
     private String direction;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id" , referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_detail_user"))
     private Users user;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "general_info_id", referencedColumnName = "id")
+    private GeneralInfo generalInfo;
 }

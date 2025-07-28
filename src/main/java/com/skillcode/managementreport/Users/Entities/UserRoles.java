@@ -10,17 +10,19 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name ="users_roles")
+@Table(name = "users_roles", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "rol_id"}))
 public class UserRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id" ,referencedColumnName = "id")
-    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "rol_id" , referencedColumnName = "id")
-    private Roles roles;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_user_role"), nullable = false)
+    private Users user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rol_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_role_user"), nullable = false)
+    private Roles role;
+
+    private boolean active = true;
 }
