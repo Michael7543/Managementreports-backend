@@ -1,20 +1,16 @@
-package com.skillcode.managementreport.Users.Dto;
-
+package com.skillcode.managementreport.Users.infrastructure.rest.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record ImageDTO(
+public record SupportStaffDTO(
         Long id,
 
         @NotBlank
         @Size(max = 255)
-        String fileName,
-
-        @NotBlank
-        @Size(max = 255)
-        String publicUrl,
+        String staffName,
 
         Long userId,
         Long generalInfoId
-) {}
+) {
+}

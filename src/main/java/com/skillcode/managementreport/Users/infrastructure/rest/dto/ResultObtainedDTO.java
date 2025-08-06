@@ -1,12 +1,11 @@
-package com.skillcode.managementreport.Users.Dto;
-
+package com.skillcode.managementreport.Users.infrastructure.rest.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record ResourceUsedDTO(
+public record ResultObtainedDTO(
         Long id,
 
         @NotBlank
@@ -19,4 +18,5 @@ public record ResourceUsedDTO(
 
         Long userId,
         Long generalInfoId
-) {}
+) {
+}

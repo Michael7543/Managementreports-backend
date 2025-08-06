@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,17 +10,18 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "support_staff")
-public class SupportStaff {
+@Table(name = "resources_used")
+public class ResourcesUsed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "staff_name", length = 255)
-    private String staffName;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "stock")
+    private Integer stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_support_user"))
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
     private Users user;
 
     /**
@@ -30,5 +31,4 @@ public class SupportStaff {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id")
     private GeneralInfo generalInfo;
-
 }

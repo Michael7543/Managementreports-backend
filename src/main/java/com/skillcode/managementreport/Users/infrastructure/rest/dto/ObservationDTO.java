@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Dto;
+package com.skillcode.managementreport.Users.infrastructure.rest.dto;
 
 
 import jakarta.validation.constraints.NotBlank;
@@ -13,4 +13,5 @@ public record ObservationDTO(
 
         Long userId,
         Long generalInfoId
-) {}
+) {
+}

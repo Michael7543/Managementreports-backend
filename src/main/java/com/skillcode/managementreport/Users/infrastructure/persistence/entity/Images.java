@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,18 +10,21 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "resources_used")
-public class ResourcesUsed {
+@Table(name = "images")
+public class Images {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "stock")
-    private Integer stock;
+
+    @Column(name = "file_name", length = 255)
+    private String fileName;
+
+    @Column(name = "public_url", length = 255)
+    private String publicUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_img_user"))
     private Users user;
 
     /**

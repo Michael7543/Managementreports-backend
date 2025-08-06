@@ -2,9 +2,8 @@ spring:
   application:
     name: manager-reports
   datasource:
-    url: jdbc:postgresql://localhost:5432/managementreports
+    url: jdbc:postgresql://localhost:5432/managementreport
     username: postgres
-    password: 1234
     driver-class-name: org.postgresql.Driver
     # Ajustes recomendados para HikariCP (pool de conexiones por defecto en Spring Boot):
     hikari:

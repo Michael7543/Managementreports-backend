@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,7 +20,7 @@ public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "role_name", length = 20, nullable = false)
+    @Column(name = "role_name", length = 30, nullable = false, unique = true)
     private String roleName;
     @Column(name = "description", length = 100)
     private String description;

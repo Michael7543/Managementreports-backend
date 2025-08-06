@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,7 +22,7 @@ public class GeneralInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "service_order", length = 255)
+    @Column(name = "service_order", length = 100)
     private String serviceOrder;
     @Column(name = "service_code", length = 50)
     private String serviceCode;
@@ -32,10 +32,10 @@ public class GeneralInfo {
     private LocalTime startTime;
     @Column(name = "end_time")
     private LocalTime endTime;
-    @Column(name = "receiver", length = 255)
+    @Column(name = "receiver", length = 100)
     private String receiver;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_general_user"))
     private Users user;
 

@@ -1,4 +1,4 @@
-package com.skillcode.managementreport.Users.Dto;
+package com.skillcode.managementreport.Users.infrastructure.rest.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ public class UsersDto {
 
     @NotBlank(message = "El nombre no puede estar vacío")
     @Size(max = 50, message = "El nombre no debe superar los 50 caracteres")
-    private String name;
+    private String firstName;
 
     @NotBlank(message = "El apellido no puede estar vacío")
     @Size(max = 50, message = "El apellido no debe superar los 50 caracteres")

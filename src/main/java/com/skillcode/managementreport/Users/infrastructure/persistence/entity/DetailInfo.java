@@ -1,7 +1,9 @@
-package com.skillcode.managementreport.Users.Entities;
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Data
 @Setter
@@ -31,9 +33,9 @@ public class DetailInfo {
     @Column(name = "public_space", length = 255)
     private String publicSpace;
     @Column(name = "latitude", precision = 10, scale = 7)
-    private Double latitude;
+    private BigDecimal latitude;
     @Column(name = "longitude", precision = 10, scale = 7)
-    private Double longitude;
+    private BigDecimal longitude;
     @Column(name = "direction", length = 255)
     private String direction;
 
