@@ -1,17 +1,18 @@
 spring:
   application:
     name: manager-reports
+  config:
+    import: optional:file:.env[.properties]
   datasource:
-    url: jdbc:postgresql://localhost:5432/managementreport
-    username: postgres
+    url: jdbc:postgresql://${DATABASE_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
-    # Ajustes recomendados para HikariCP (pool de conexiones por defecto en Spring Boot):
     hikari:
       maximum-pool-size: 10
       minimum-idle: 2
       idle-timeout: 30000
       connection-timeout: 20000
-
   jpa:
     hibernate:
       ddl-auto: update
