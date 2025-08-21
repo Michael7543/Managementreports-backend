@@ -1,0 +1,35 @@
+services:
+# PostgreSQL
+  postgres:
+    image: postgres:17.5
+    container_name: postgres-docker
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # PgAdmin
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-docker
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+#networks:
+#  postgres_network:
+#    driver: bridge
