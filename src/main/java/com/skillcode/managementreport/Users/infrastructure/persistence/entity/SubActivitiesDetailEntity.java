@@ -31,6 +31,9 @@ public class SubActivitiesDetailEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "activity_detail_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_activity_detail"))
-    private ActivitiesDetailEntity  activityDetail;
+    private ActivitiesDetailEntity activityDetail;
+
+    @OneToMany(mappedBy = "subActivitiesDetail", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetailInfoEntity> detailInfoEntities = new ArrayList<>();
 
 }
