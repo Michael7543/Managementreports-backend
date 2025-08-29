@@ -6,8 +6,6 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -26,8 +24,12 @@ public class StrategyDetailEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String name;
+    @Column(name = "strategy_name", nullable = false)
+    private String strategyName;
+    /**
+     * TODO (Michael): Agregar la relación faltante @ManyToOne en General info y descomentar esta relación.
+     */
 
-    @OneToMany(mappedBy = "strategyDetail", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<DetailInfoEntity> detailInfo = new ArrayList<>();
+    //@OneToMany(mappedBy = "strategyDetail", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    //private List<GeneralInfoEntity> generalInfo;
 }
