@@ -25,12 +25,17 @@ public class ActivitiesDetailEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String name;
+    @Column(name = "activity_name", nullable = false, unique = true)
+    private String activityName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "function_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_function"))
+    private FunctionDetailEntity  functionDetail;
 
     @OneToMany(mappedBy = "activitiesDetail", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetailInfoEntity> detailInfo = new ArrayList<>();
 
-    @ManyToOne(fetch =  FetchType.LAZY)
-    @JoinColumn(name = "sub_activities_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_sub_activities"))
-    private SubActivitiesDetailEntity subActivitiesDetail;
+    @OneToMany(mappedBy = "activityDetail", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubActivitiesDetailEntity>  subActivitiesDetail = new ArrayList<>();
+
 }

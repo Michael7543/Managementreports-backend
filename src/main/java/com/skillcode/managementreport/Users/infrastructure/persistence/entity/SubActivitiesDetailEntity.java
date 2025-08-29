@@ -26,8 +26,11 @@ public class SubActivitiesDetailEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String name;
+    @Column(name = "subactivity_name")
+    private String subactivityName;
 
-    @OneToMany(mappedBy = "subActivitiesDetail",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<ActivitiesDetailEntity> activitiesDetail = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_detail_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_activity_detail"))
+    private ActivitiesDetailEntity  activityDetail;
+
 }
