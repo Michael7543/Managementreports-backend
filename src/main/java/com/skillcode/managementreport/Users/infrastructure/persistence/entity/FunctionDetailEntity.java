@@ -25,7 +25,11 @@ public class FunctionDetailEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String name;
+    @Column(name = "function_name", nullable = false, unique = true)
+    private String functionName;
+
+    @OneToMany(mappedBy = "functionDetail", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<ActivitiesDetailEntity>  activitiesDetail;
 
     @OneToMany(mappedBy = "functionDetail", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<DetailInfoEntity> detailInfo = new ArrayList<>();
