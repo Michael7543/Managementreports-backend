@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "roles", indexes = {
+@Table(name = "roles",schema = "management_report", indexes = {
         @Index(name = "idx_role_name", columnList = "role_name")
 })
 public class Roles {

@@ -1,0 +1,35 @@
+package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import java.io.Serial;
+import java.io.Serializable;
+
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "resource_catalog",schema = "management_report")
+public class ResourceCatalog implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Column(name = "tipo_recurso")
+    private String tipoRecurso;
+
+    @OneToMany(mappedBy = "resourceCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ResourcesUsed> resourcesUsed = new ArrayList<>();
+
+}

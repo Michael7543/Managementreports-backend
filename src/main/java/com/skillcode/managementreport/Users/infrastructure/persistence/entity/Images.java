@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "images")
+@Table(name = "images",schema = "management_report")
 public class Images {
 
     @Id

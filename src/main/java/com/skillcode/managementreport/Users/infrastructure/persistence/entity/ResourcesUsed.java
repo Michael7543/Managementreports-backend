@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "resources_used")
+@Table(name = "resources_used",schema = "management_report")
 public class ResourcesUsed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public class ResourcesUsed {
     private Integer stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
-    private Users user;
+    @JoinColumn(name = "resource_catalog_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
+    private ResourceCatalog resourceCatalog;
 
     /**
      * Desacomentar la relación cuando ya exista la entidad corresponsiente
      */
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "general_info_id", referencedColumnName = "id")
+    @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
     private GeneralInfo generalInfo;
 }

@@ -15,15 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "general_info", indexes = {
+@Table(name = "general_info",schema = "management_report", indexes = {
         @Index(name = "idx_general_user", columnList = "user_id")
 })
 public class GeneralInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "service_order", length = 100)
-    private String serviceOrder;
     @Column(name = "service_code", length = 50)
     private String serviceCode;
     @Column(name = "date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -32,12 +30,34 @@ public class GeneralInfo {
     private LocalTime startTime;
     @Column(name = "end_time")
     private LocalTime endTime;
-    @Column(name = "receiver", length = 100)
-    private String receiver;
+
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_general_user"))
-    private Users user;
+    private Users users;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "results_obtained_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_results_obtained"))
+    private ResultObtained resultObtained;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_service_id", referencedColumnName = "id",foreignKey  = @ForeignKey(name = "fk_order_service"))
+    private OrderService orderService;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "state_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_state"))
+    private State state;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "structure_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_structure_info"))
+    private StructureInfo structureInfo;
+
+ /*   @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stategy_id", referencedColumnName = "id".foreingKey = @ForeignKey(name="fk_stategy"))
+    private Strategy stategy;
+*/
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetailInfo> detailInfos = new ArrayList<>();
@@ -49,11 +69,19 @@ public class GeneralInfo {
     private List<ResourcesUsed> resourcesUsed = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ResultObtained> resultObtained = new ArrayList<>();
-
-    @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Observations> observations = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Images> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Receiver> receiver = new ArrayList<>();
+
+    @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SupervisorActivity> supervisorActivity = new ArrayList<>();
+
+    @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Evaluations> evaluations = new ArrayList<>();
+
+
 }

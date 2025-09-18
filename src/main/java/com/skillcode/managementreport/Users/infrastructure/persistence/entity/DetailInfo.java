@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "detail_info")
+@Table(name = "detail_info",schema = "management_report")
 public class DetailInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
