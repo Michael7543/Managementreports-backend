@@ -1,4 +1,10 @@
 package com.skillcode.managementreport.Users.domain.model;
 
-public record ResourceCatalogDetail() {
-}
+import java.util.List;
+import java.util.UUID;
+
+public record ResourceCatalogDetail(
+        UUID id,
+        String tipoRecurso,
+        List<GeneralResourcesDetail> generalResourcesDetail
+) {}

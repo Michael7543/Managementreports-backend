@@ -1,4 +1,9 @@
 package com.skillcode.managementreport.Users.domain.model;
 
-public record OrderServiceDetail() {
-}
+import java.util.List;
+import java.util.UUID;
+
+public record OrderServiceDetail(
+        UUID id,
+        List<GeneralInfoDetail> generalInfo
+) {}

@@ -1,4 +1,10 @@
 package com.skillcode.managementreport.Users.domain.model;
 
-public record SupervisorActivityDetail() {
-}
+import java.util.UUID;
+
+public record SupervisorActivityDetail(
+        UUID id,
+        UsersDetail users,
+        GeneralInfoDetail generalInfo,
+        StateDetail state
+) {}

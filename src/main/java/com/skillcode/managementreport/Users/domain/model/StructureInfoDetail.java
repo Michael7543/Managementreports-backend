@@ -1,4 +1,9 @@
 package com.skillcode.managementreport.Users.domain.model;
 
-public record StructureInfoDetail() {
-}
+import java.util.List;
+import java.util.UUID;
+
+public record StructureInfoDetail(
+        UUID id,
+        List<GeneralInfoDetail> generalInfo
+) {}

@@ -1,4 +1,11 @@
 package com.skillcode.managementreport.Users.domain.model;
 
-public record SupportStaffDetail() {
-}
+import java.util.Date;
+
+public record SupportStaffDetail(
+        Long id,
+        String staffName,
+        Date fechaAsignacion,
+        UsersDetail users,
+        GeneralInfoDetail generalInfo
+) {}
