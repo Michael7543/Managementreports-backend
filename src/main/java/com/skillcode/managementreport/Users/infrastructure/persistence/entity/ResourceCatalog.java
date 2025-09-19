@@ -30,6 +30,6 @@ public class ResourceCatalog implements Serializable {
     private String tipoRecurso;
 
     @OneToMany(mappedBy = "resourceCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ResourcesUsed> resourcesUsed = new ArrayList<>();
+    private List<GeneralResources> generalResources = new ArrayList<>();
 
 }

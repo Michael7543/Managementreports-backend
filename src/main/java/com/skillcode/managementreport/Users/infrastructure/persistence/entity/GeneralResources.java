@@ -3,22 +3,21 @@ package com.skillcode.managementreport.Users.infrastructure.persistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+import java.util.UUID;
+
 @Data
-@Setter
 @Getter
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "resources_used",schema = "management_report")
-public class ResourcesUsed {
+@Table(name = "general_resources",schema = "management_report")
+public class GeneralResources implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "stock")
-    private Integer stock;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resource_catalog_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
@@ -31,4 +30,5 @@ public class ResourcesUsed {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
     private GeneralInfo generalInfo;
+
 }

@@ -66,10 +66,7 @@ public class GeneralInfo {
     private List<SupportStaff> supportStaff = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ResourcesUsed> resourcesUsed = new ArrayList<>();
-
-    @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Observations> observations = new ArrayList<>();
+    private List<GeneralResources> generalResources = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Images> images = new ArrayList<>();
