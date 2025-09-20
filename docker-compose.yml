@@ -1,35 +1,32 @@
 services:
-# PostgreSQL
   postgres:
-    image: postgres:17.5
-    container_name: postgres-docker
+    image: postgres:15
+    container_name: postgres_db
     restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: mi_base
     ports:
       - "5432:5432"
-    environment:
-      DATABASE_HOST: ${DATABASE_HOST}
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # PgAdmin
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin-docker
+    container_name: pgadmin_web
     restart: always
-    ports:
-      - "80:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8090:80"
     depends_on:
       - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
 volumes:
   postgres_data:
+  pgadmin_data:
 
-#networks:
-#  postgres_network:
-#    driver: bridge

@@ -18,7 +18,7 @@ public class DetailInfoDTO {
     private ActivitiesDetailDTO activitiesDetail;
     private SubActivitiesDetailDTO subActivitiesDetail;
     private LocationDetailDTO locationDetail;
-    private GeneralInfoDTO generalInfo;
+    private GeneralInfoDto generalInfo;
     private TypeSpaceDetailDTO typeSpaceDetail;
     private AdministrationZoneDetailDTO administrationZoneDetail;
     private PublicSpaceDetailDTO publicSpaceDetail;

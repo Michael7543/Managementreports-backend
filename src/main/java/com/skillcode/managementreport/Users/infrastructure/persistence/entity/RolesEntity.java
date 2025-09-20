@@ -13,10 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "roles", indexes = {
+@Table(name = "roles",schema = "management_report", indexes = {
         @Index(name = "idx_role_name", columnList = "role_name")
 })
-public class Roles {
+public class RolesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,6 +25,9 @@ public class Roles {
     @Column(name = "description", length = 100)
     private String description;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserRoles> userWhitRole = new ArrayList<>();
+    @OneToMany(mappedBy = "rolesEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserRolesEntity> userWhitRole = new ArrayList<>();
+
+    @OneToMany(mappedBy = "rolesEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ReceptorEntity> receptorEntities = new ArrayList<>();
 }
