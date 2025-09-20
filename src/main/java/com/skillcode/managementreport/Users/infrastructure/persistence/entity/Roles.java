@@ -25,9 +25,9 @@ public class Roles {
     @Column(name = "description", length = 100)
     private String description;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "roles", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRoles> userWhitRole = new ArrayList<>();
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "roles", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receptor> receptors = new ArrayList<>();
 }

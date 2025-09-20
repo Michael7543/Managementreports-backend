@@ -39,10 +39,10 @@ public class Users {
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRoles> userRoles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "emisor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "emisor_user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GeneralInfo> userEmisor = new ArrayList<>();
 
-    @OneToMany(mappedBy = "receptor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "receptor_user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GeneralInfo> userReceptor = new ArrayList<>();
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)

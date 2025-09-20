@@ -34,11 +34,11 @@ public class GeneralInfo {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_user_emisor", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_id_user_emisor"))
-    private Users emisorUser;
+    private Users emisor_user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_user_receptor", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_id_user_receptor"))
-    private Users receptorUser;
+    private Users receptor_user;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -22,7 +22,7 @@ public class UserRoles {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "rol_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_role_user"), nullable = false)
-    private Roles role;
+    private Roles roles;
 
     private boolean active = true;
 }
