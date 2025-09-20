@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "receiver",schema = "management_report")
-public class Receptor implements Serializable {
+public class ReceptorEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -25,14 +25,14 @@ public class Receptor implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
-    private GeneralInfo generalInfo;
+    private GeneralInfoEntity generalInfoEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_users"))
-    private Users users;
+    private UsersEntity usersEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rol_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_rol"))
-    private Roles roles;
+    private RolesEntity rolesEntity;
 
 }

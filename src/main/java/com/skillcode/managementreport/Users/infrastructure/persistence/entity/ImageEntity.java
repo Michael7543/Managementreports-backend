@@ -26,5 +26,5 @@ public class ImageEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id")
-    private GeneralInfo generalInfo;
+    private GeneralInfoEntity generalInfoEntity;
 }

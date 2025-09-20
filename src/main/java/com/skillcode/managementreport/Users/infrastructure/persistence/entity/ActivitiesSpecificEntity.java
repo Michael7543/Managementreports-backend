@@ -17,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @Table(name = "activities_specific",schema = "management_report")
-public class ActivitiesSpecific implements Serializable {
+public class ActivitiesSpecificEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +32,6 @@ public class ActivitiesSpecific implements Serializable {
     @JoinColumn(name = "id_function_general", referencedColumnName = "id", foreignKey = @ForeignKey(name="fk_function_general"))
     private FunctionDetailEntity functionDetailEntity;
 
-    @OneToMany(mappedBy = "activitiesSpecific", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "activitiesSpecificEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SubActivitiesDetailEntity> subActivitiesDetailEntities = new ArrayList<>();
 }

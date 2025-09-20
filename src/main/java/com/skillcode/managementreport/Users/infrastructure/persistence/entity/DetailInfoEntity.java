@@ -40,7 +40,7 @@ public class DetailInfoEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_general_info"))
-    private GeneralInfo generalInfo;
+    private GeneralInfoEntity generalInfoEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_space__detail_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_type_space_detail"))

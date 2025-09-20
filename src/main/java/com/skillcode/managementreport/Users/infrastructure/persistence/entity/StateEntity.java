@@ -17,7 +17,7 @@ import java.util.UUID;
 @Builder
 @Entity
 @Table(name = "state",schema = "management_report")
-public class State implements Serializable {
+public class StateEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -28,10 +28,10 @@ public class State implements Serializable {
     @Column(name = "name",length = 255)
     private String name;
 
-    @OneToMany(mappedBy = "state", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralInfo> generalInfo = new ArrayList<>();
+    @OneToMany(mappedBy = "stateEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GeneralInfoEntity> generalInfoEntity = new ArrayList<>();
 
-    @OneToMany(mappedBy = "state", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "stateEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SupervisorActivity> supervisorActivity = new ArrayList<>();
 
 }

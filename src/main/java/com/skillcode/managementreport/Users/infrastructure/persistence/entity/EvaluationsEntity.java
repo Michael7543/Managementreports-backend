@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "evaluations",schema = "management_report")
-public class Evaluations implements Serializable {
+public class EvaluationsEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -33,5 +33,5 @@ public class Evaluations implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
-    private GeneralInfo generalInfo;
+    private GeneralInfoEntity generalInfoEntity;
 }

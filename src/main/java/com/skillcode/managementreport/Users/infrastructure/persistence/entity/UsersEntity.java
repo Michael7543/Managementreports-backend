@@ -17,7 +17,7 @@ import java.util.List;
 @Table(name = "users",schema = "management_report", indexes = {
         @Index(name = "idx_user_email", columnList = "email")
 })
-public class Users {
+public class UsersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -36,21 +36,21 @@ public class Users {
     @Column(name = "active")
     private boolean active = true;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserRoles> userRoles = new ArrayList<>();
+    @OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserRolesEntity> userRoleEntities = new ArrayList<>();
 
     @OneToMany(mappedBy = "emisor_user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralInfo> userEmisor = new ArrayList<>();
+    private List<GeneralInfoEntity> userEmisor = new ArrayList<>();
 
     @OneToMany(mappedBy = "receptor_user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralInfo> userReceptor = new ArrayList<>();
+    private List<GeneralInfoEntity> userReceptor = new ArrayList<>();
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SupportStaff> supportStaffs = new ArrayList<>();
+    @OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SupportStaffEntity> supportStaffEntities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Receptor> receptors = new ArrayList<>();
+    @OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ReceptorEntity> receptorEntities = new ArrayList<>();
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "usersEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SupervisorActivity> supervisorActivities = new ArrayList<>();
 }

@@ -14,7 +14,7 @@ import java.util.UUID;
 @Builder
 @Entity
 @Table(name = "general_resources",schema = "management_report")
-public class GeneralResources implements Serializable {
+public class GeneralResourcesEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -24,10 +24,10 @@ public class GeneralResources implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resource_catalog_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
-    private ResourceCatalog resourceCatalog;
+    private ResourceCatalogEntity resourceCatalogEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
-    private GeneralInfo generalInfo;
+    private GeneralInfoEntity generalInfoEntity;
 
 }

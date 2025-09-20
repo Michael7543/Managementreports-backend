@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "resource_catalog",schema = "management_report")
-public class ResourceCatalog implements Serializable {
+public class ResourceCatalogEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class ResourceCatalog implements Serializable {
     @Column(name = "type_resource")
     private String typeResource;
 
-    @OneToMany(mappedBy = "resourceCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralResources> generalResources = new ArrayList<>();
+    @OneToMany(mappedBy = "resourceCatalogEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GeneralResourcesEntity> generalResourceEntities = new ArrayList<>();
 
 }

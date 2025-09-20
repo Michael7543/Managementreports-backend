@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "result_obtained",schema = "management_report")
-public class ResultObtained {
+public class ResultObtainedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -24,6 +24,6 @@ public class ResultObtained {
     private Integer quantity;
 
 
-    @OneToMany(mappedBy = "resultObtained", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralInfo> generalInfo = new ArrayList<>();
+    @OneToMany(mappedBy = "resultObtainedEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GeneralInfoEntity> generalInfoEntity = new ArrayList<>();
 }
