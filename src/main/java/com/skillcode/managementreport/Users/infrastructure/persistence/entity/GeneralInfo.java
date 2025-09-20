@@ -58,10 +58,10 @@ public class GeneralInfo {
     @JoinColumn(name = "structure_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_structure_info"))
     private StructureInfo structureInfo;
 
- /*   @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stategy_id", referencedColumnName = "id".foreingKey = @ForeignKey(name="fk_stategy"))
-    private Strategy stategy;
-*/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stategy_id", referencedColumnName = "id", foreignKey = @ForeignKey(name="fk_stategy"))
+    private StrategyDetailEntity stategy;
+
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetailInfo> detailInfos = new ArrayList<>();
@@ -73,7 +73,7 @@ public class GeneralInfo {
     private List<GeneralResources> generalResources = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Images> images = new ArrayList<>();
+    private List<ImageEntity> images = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Receptor> receptor = new ArrayList<>();
