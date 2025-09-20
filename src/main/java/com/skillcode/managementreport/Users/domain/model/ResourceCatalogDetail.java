@@ -5,6 +5,6 @@ import java.util.UUID;
 
 public record ResourceCatalogDetail(
         UUID id,
-        String tipoRecurso,
+        String typeResource,
         List<GeneralResourcesDetail> generalResourcesDetail
 ) {}

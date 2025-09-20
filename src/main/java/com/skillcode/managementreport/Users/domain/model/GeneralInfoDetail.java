@@ -11,7 +11,8 @@ public record GeneralInfoDetail(
         LocalDateTime date,
         LocalTime startTime,
         LocalTime endTime,
-        UsersDetail user,
+        UsersDetail receptorUser,
+        UsersDetail emisorUser,
         ResultsObtainedDetail resultObtainedDetail,
         OrderServiceDetail orderServiceDetail,
         StateDetail stateDetail,
@@ -19,7 +20,7 @@ public record GeneralInfoDetail(
         List<SupportStaffDetail> supportStaff,
         List<GeneralResourcesDetail> generalResourcesDetails,
         List<ImagesDetail> images,
-        List<ReceiverDetail> receivers,
+        List<ReceptorDetail> receivers,
         List<SupervisorActivityDetail> supervisorActivity,
         List<EvaluationsDetail> evaluations
 ) {

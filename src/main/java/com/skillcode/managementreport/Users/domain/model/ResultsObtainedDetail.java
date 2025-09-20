@@ -6,6 +6,6 @@ import java.util.List;
 public record ResultsObtainedDetail(
         Long id,
         String name,
-        Integer stock,
+        Integer quantity,
         List<GeneralInfoDetail> generalInfo
 ) {}

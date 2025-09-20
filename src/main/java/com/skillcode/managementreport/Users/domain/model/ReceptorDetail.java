@@ -2,8 +2,9 @@ package com.skillcode.managementreport.Users.domain.model;
 
 import java.util.UUID;
 
-public record ReceiverDetail(
+public record ReceptorDetail(
         UUID id,
         GeneralInfoDetail generalInfo,
-        UsersDetail users
+        UsersDetail users,
+        RolesDetail roles
 ) {}

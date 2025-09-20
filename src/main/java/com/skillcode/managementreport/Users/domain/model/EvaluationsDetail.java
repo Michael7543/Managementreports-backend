@@ -5,8 +5,8 @@ import java.util.UUID;
 
 public record EvaluationsDetail(
         UUID id,
-        BigDecimal puntuacion,
-        String comentario,
+        BigDecimal punctuation,
+        String comment,
         GeneralInfoDetail generalInfoDetail
 ) {
 }

@@ -5,5 +5,6 @@ import java.util.UUID;
 
 public record StructureInfoDetail(
         UUID id,
+        String name,
         List<GeneralInfoDetail> generalInfo
 ) {}
