@@ -60,7 +60,7 @@ public class GeneralInfoEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stategy_id", referencedColumnName = "id", foreignKey = @ForeignKey(name="fk_stategy"))
-    private StrategyDetailEntity stategy;
+    private StrategyDetailEntity strategyDetail;
 
 
     @OneToMany(mappedBy = "generalInfoEntity", cascade = CascadeType.ALL, orphanRemoval = true)
