@@ -21,19 +21,21 @@ public class SupportStaff {
     @Column(name = "staff_name", length = 255)
     private String staffName;
 
-    @Column(name = "fecha_asignacion", length = 255)
-    private Date fechaAsignacion;
+    @Column(name = "assignment_date", length = 255)
+    private Date assignmentDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_support_user"))
+    @JoinColumn(name = "user_id",referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_user_apoyo"))
     private Users users;
 
-    /**
-     * Desacomentar la relación cuando ya exista la entidad corresponsiente
-     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "rol_id",referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_rol_apoyo"))
+    private Roles roles;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
     private GeneralInfo generalInfo;
+
+
 
 }

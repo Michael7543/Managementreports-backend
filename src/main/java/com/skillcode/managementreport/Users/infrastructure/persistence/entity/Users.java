@@ -39,14 +39,17 @@ public class Users {
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRoles> userRoles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<GeneralInfo> generalInfos = new ArrayList<>();
+    @OneToMany(mappedBy = "emisor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GeneralInfo> userEmisor = new ArrayList<>();
+
+    @OneToMany(mappedBy = "receptor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GeneralInfo> userReceptor = new ArrayList<>();
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SupportStaff> supportStaffs = new ArrayList<>();
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Receiver> receivers = new ArrayList<>();
+    private List<Receptor> receptors = new ArrayList<>();
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SupervisorActivity> supervisorActivities = new ArrayList<>();

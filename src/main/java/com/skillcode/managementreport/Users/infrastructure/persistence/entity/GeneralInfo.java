@@ -33,8 +33,12 @@ public class GeneralInfo {
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_general_user"))
-    private Users users;
+    @JoinColumn(name = "id_user_emisor", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_id_user_emisor"))
+    private Users emisorUser;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_user_receptor", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_id_user_receptor"))
+    private Users receptorUser;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -72,7 +76,7 @@ public class GeneralInfo {
     private List<Images> images = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Receiver> receiver = new ArrayList<>();
+    private List<Receptor> receptor = new ArrayList<>();
 
     @OneToMany(mappedBy = "generalInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SupervisorActivity> supervisorActivity = new ArrayList<>();

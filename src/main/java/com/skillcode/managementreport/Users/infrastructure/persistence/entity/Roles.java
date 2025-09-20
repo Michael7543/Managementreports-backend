@@ -27,4 +27,7 @@ public class Roles {
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRoles> userWhitRole = new ArrayList<>();
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Receptor> receptors = new ArrayList<>();
 }

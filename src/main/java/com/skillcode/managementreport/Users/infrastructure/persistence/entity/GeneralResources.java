@@ -19,13 +19,12 @@ public class GeneralResources implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(name = "quantity")
+    private Integer quantity;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resource_catalog_id", foreignKey = @ForeignKey(name = "fk_resource_user"))
     private ResourceCatalog resourceCatalog;
-
-    /**
-     * Desacomentar la relación cuando ya exista la entidad corresponsiente
-     */
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))

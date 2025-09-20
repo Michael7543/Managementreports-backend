@@ -26,8 +26,8 @@ public class ResourceCatalog implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "tipo_recurso")
-    private String tipoRecurso;
+    @Column(name = "type_resource")
+    private String typeResource;
 
     @OneToMany(mappedBy = "resourceCatalog", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GeneralResources> generalResources = new ArrayList<>();

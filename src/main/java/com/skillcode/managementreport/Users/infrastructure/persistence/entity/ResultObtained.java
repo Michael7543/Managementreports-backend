@@ -20,16 +20,9 @@ public class ResultObtained {
     private Long Id;
     @Column(name = "name")
     private String name;
-    @Column(name = "stock")
-    private Integer stock;
+    @Column(name = "quantity")
+    private Integer quantity;
 
-   /* @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_result_user"))
-    private Users user;
-*/
-    /**
-     * Desacomentar la relación cuando ya exista la entidad corresponsiente
-     */
 
     @OneToMany(mappedBy = "resultObtained", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GeneralInfo> generalInfo = new ArrayList<>();

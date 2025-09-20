@@ -28,6 +28,9 @@ public class StructureInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(name = "name",length = 255)
+    private String name;
+
     @OneToMany(mappedBy = "structureInfo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GeneralInfo> generalInfo = new ArrayList<>();
 

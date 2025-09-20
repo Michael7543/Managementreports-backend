@@ -25,11 +25,11 @@ public class Evaluations implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "puntuacion",length = 10)
-    private BigDecimal puntuacion;
+    @Column(name = "punctuation",length = 10)
+    private BigDecimal punctuation;
 
-    @Column(name = "comentario",length = 255)
-    private String comentario;
+    @Column(name = "comment",length = 255)
+    private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "general_info_id", referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_general_info"))
